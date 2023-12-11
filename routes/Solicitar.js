@@ -20,9 +20,9 @@ router.get("/:id", async(req, res)=>{
         res.status(200).json("Erro na Execução!")
     }
 })
-router.get("/acompanhar/:id", async(req, res)=>{
+router.post("/acompanhar", async(req, res)=>{
     try {
-        const response = await Solicitar.find({userId: req.params.id});
+        const response = await Solicitar.find({user: req.body.user});
         res.status(200).json(response)
     } catch (error) {
         res.status(200).json("Erro na Execução!")
