@@ -20,6 +20,14 @@ router.get("/:id", async(req, res)=>{
         res.status(200).json("Erro na Execução!")
     }
 })
+router.get("/acompanhar/:id", async(req, res)=>{
+    try {
+        const response = await Solicitar.find({userId: req.params.id});
+        res.status(200).json(response)
+    } catch (error) {
+        res.status(200).json("Erro na Execução!")
+    }
+})
 router.post("/", async(req, res)=>{
     try {
         const newData = new Solicitar(req.body);
@@ -34,7 +42,7 @@ router.post("/pesq", async(req, res)=>{
         const AllCars = await Carro.find();
         const AllSol = await Solicitar.find();
         var cars = AllCars.filter((all)=> all.status !== "Manutencao")//Livre e Reservado
-        var sol = AllSol.filter((alls)=> alls.status === "Aprovado" && alls.data === req.body.date)//pedido aprovados
+        var sol = AllSol.filter((alls)=> alls.status === "Aprovado" && alls.date === req.body.date)//pedido aprovados
         
         var data = await Filtrar(cars, sol)
         

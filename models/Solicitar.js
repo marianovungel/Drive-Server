@@ -22,7 +22,7 @@ const SolicitarSchema = new mongoose.Schema({
     PontoRef:String,
     Cep:String,
     Hora:String,
-    data:String,
+    date:String,
     Passageiros:Number,
 
     RuaD:String,
