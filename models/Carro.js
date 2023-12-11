@@ -6,6 +6,7 @@ const CarroSchema = new mongoose.Schema({
     marca:String,
     tipo:String,
     capacidade:Number
+    
 },
     {timestamps: true}
 );

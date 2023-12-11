@@ -5,6 +5,7 @@ const cors = require('cors')
 require('./db')
 
 const Carro = require('./routes/Carro')
+const Solicitar = require('./routes/Solicitar')
 
 
 app.use(express.json())
@@ -25,6 +26,7 @@ app.get("/", (req, res)=>{
 })
 
 app.use("/carro", Carro)
+app.use("/solicitar", Solicitar)
 
 const port = process.env.PORT
 app.listen(port, console.log("Servidor funcionando!", port))
